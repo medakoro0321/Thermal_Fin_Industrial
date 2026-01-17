@@ -1,7 +1,7 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "com.samekoro0321.thermalfin_industrial.mixin",
+  "package": "com.samekoro0321.thermalfin_industrial",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
   ],
