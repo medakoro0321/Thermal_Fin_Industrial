@@ -1,0 +1,87 @@
+package com.samekoro0321.thermalfin_industrial.BlockEntities;
+
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.capabilities.Capabilities;
+import net.neoforged.neoforge.energy.IEnergyStorage;
+
+public class PowerBlockEntity extends BlockEntity {
+
+    private static final int MAX_CAPACITY = 10000; // エネルギーの最大容量
+    private static final int MAX_RECEIVE = 100; // 最大入力レート
+    private static final int MAX_EXTRACT = 100; // 最大出力レート
+
+    // カスタムEnergyStorageクラス(setEnergyメソッドを持つもの)を使用
+    private final CustomEnergyStorage energyStorage = new CustomEnergyStorage(MAX_CAPACITY, MAX_RECEIVE, MAX_EXTRACT);
+
+    public PowerBlockEntity(BlockPos pos, BlockState blockState) {
+        super(ModBlockEntities.POWER_BLOCK.get(), pos, blockState);
+    }
+
+    // tick処理(Blockクラスで登録する)
+    public void tick(Level level, BlockPos pos, BlockState state) {
+        if (level.isClientSide) return;
+
+        // debuglog
+        if (level.getGameTime() % 20 == 0) { // 1秒ごと
+            System.out.println("[TICK] PowerBlock at " + pos + " - Energy: " +
+                    energyStorage.getEnergyStored() + "/" + energyStorage.getMaxEnergyStored());
+        }
+
+        generateEnergy();
+        distributeEnergy(level, pos);
+    }
+
+    // 発電処理
+    private void generateEnergy() {
+        int generated = 10; // 1tickあたり10エネルギー生成
+        energyStorage.receiveEnergy(generated, false);
+    }
+
+    // 隣接ブロックへエネルギーを送る
+    private void distributeEnergy(Level level, BlockPos pos) {
+        for (Direction direction : Direction.values()) {
+            BlockPos neighborPos = pos.relative(direction);
+
+            // NeoForge 1.21.1の新しいCapability取得方法
+            IEnergyStorage neighborEnergy = level.getCapability(
+                    Capabilities.EnergyStorage.BLOCK,
+                    neighborPos,
+                    direction.getOpposite()
+            );
+
+            if (neighborEnergy != null && neighborEnergy.canReceive()) {
+                // シミュレーションで「いくら送れるか」確認
+                int extracted = energyStorage.extractEnergy(MAX_EXTRACT, true);
+                // 隣接ブロックに実際に送る
+                int received = neighborEnergy.receiveEnergy(extracted, false);
+                // 受け取った分だけ、実際にこちらから減らす
+                energyStorage.extractEnergy(received, false);
+            }
+        }
+    }
+
+    // エネルギーストレージを取得(Capability登録用)
+    public CustomEnergyStorage getEnergyStorage() {
+        return energyStorage;
+    }
+
+    // NBTへの保存(ワールドセーブ時)
+    @Override
+    protected void saveAdditional(CompoundTag compoundTag, HolderLookup.Provider provider) {
+        super.saveAdditional(compoundTag, provider);
+        compoundTag.putInt("Energy", energyStorage.getEnergyStored());
+    }
+
+    // NBTからの読み込み(ワールドロード時)
+    @Override
+    protected void loadAdditional(CompoundTag compoundTag, HolderLookup.Provider provider) {
+        super.loadAdditional(compoundTag, provider);
+        energyStorage.setEnergy(compoundTag.getInt("Energy"));
+    }
+}

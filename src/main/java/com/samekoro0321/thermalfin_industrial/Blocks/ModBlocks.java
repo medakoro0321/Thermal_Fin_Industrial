@@ -17,6 +17,7 @@ import java.util.function.Supplier;
 public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(Thermalfin_industrial.MOD_ID);
 
+    // ブロック追加
     public static final DeferredBlock<Block> TEST_BLOCK = registerBlock(
             "test_block",
             () -> new Block(BlockBehaviour.Properties.of()
@@ -25,7 +26,17 @@ public class ModBlocks {
             )
     );
 
-    // ブロックを追加
+    public static final DeferredBlock<Block> POWER_BLOCK = registerBlock(
+            "power_block",
+            () -> new PowerBlock(BlockBehaviour.Properties.of()
+                    .strength(2.0f)
+                    .requiresCorrectToolForDrops()
+            )
+    );
+
+
+
+    // ブロックを登録
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block)
     {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);

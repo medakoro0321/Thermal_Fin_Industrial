@@ -1,6 +1,7 @@
 package com.samekoro0321.thermalfin_industrial;
 
 import com.mojang.logging.LogUtils;
+import com.samekoro0321.thermalfin_industrial.BlockEntities.ModBlockEntities;
 import com.samekoro0321.thermalfin_industrial.BlockItems.ModBlockItems;
 import com.samekoro0321.thermalfin_industrial.Blocks.ModBlocks;
 import net.minecraft.client.Minecraft;
@@ -56,10 +57,9 @@ public class Thermalfin_industrial {
 
         ModBlockItems.Register(modEventBus); // アイテム
         ModBlocks.Register(modEventBus); // ブロック
-        /*
         ModBlockEntities.register(modEventBus); // ブロックエンティティ
-        ModMenuTypes.register(modEventBus); // メニュータイプ
-        */
+        //ModMenuTypes.register(modEventBus); // メニュータイプ
+
 
         // クリエイティブタブにアイテムを登録します
         modEventBus.addListener(this::addCreative);
