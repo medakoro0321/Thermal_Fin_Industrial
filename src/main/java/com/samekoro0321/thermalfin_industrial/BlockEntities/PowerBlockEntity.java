@@ -16,7 +16,7 @@ public class PowerBlockEntity extends BlockEntity {
     private static final int MAX_RECEIVE = 100; // 最大入力レート
     private static final int MAX_EXTRACT = 100; // 最大出力レート
 
-    // カスタムEnergyStorageクラス(setEnergyメソッドを持つもの)を使用
+    // カスタムEnergyStorageクラスを使用
     private final CustomEnergyStorage energyStorage = new CustomEnergyStorage(MAX_CAPACITY, MAX_RECEIVE, MAX_EXTRACT);
 
     public PowerBlockEntity(BlockPos pos, BlockState blockState) {
@@ -24,14 +24,8 @@ public class PowerBlockEntity extends BlockEntity {
     }
 
     // tick処理(Blockクラスで登録する)
-    public void tick(Level level, BlockPos pos, BlockState state) {
+    public void tick(Level level, BlockPos pos, BlockState blockState) {
         if (level.isClientSide) return;
-
-        // debuglog
-        if (level.getGameTime() % 20 == 0) { // 1秒ごと
-            System.out.println("[TICK] PowerBlock at " + pos + " - Energy: " +
-                    energyStorage.getEnergyStored() + "/" + energyStorage.getMaxEnergyStored());
-        }
 
         generateEnergy();
         distributeEnergy(level, pos);
@@ -40,7 +34,7 @@ public class PowerBlockEntity extends BlockEntity {
     // 発電処理
     private void generateEnergy() {
         int generated = 10; // 1tickあたり10エネルギー生成
-        energyStorage.receiveEnergy(generated, false);
+        energyStorage.receiveEnergy(generated, false); // エネルギーを送る
     }
 
     // 隣接ブロックへエネルギーを送る
@@ -48,7 +42,7 @@ public class PowerBlockEntity extends BlockEntity {
         for (Direction direction : Direction.values()) {
             BlockPos neighborPos = pos.relative(direction);
 
-            // NeoForge 1.21.1の新しいCapability取得方法
+            // Capability取得
             IEnergyStorage neighborEnergy = level.getCapability(
                     Capabilities.EnergyStorage.BLOCK,
                     neighborPos,
@@ -56,11 +50,11 @@ public class PowerBlockEntity extends BlockEntity {
             );
 
             if (neighborEnergy != null && neighborEnergy.canReceive()) {
-                // シミュレーションで「いくら送れるか」確認
+                // シュミレーションを先に動かす
                 int extracted = energyStorage.extractEnergy(MAX_EXTRACT, true);
                 // 隣接ブロックに実際に送る
                 int received = neighborEnergy.receiveEnergy(extracted, false);
-                // 受け取った分だけ、実際にこちらから減らす
+                // 実際に減らす
                 energyStorage.extractEnergy(received, false);
             }
         }

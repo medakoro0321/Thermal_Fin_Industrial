@@ -9,10 +9,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class ModBlockEntities {
-
-    // DeferredRegisterの作成
-    public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
-            DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, Thermalfin_industrial.MOD_ID); // MODIDに変更
+    public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, Thermalfin_industrial.MOD_ID);
 
     // PowerBlockEntityの登録
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<PowerBlockEntity>> POWER_BLOCK =
@@ -22,6 +19,9 @@ public class ModBlockEntities {
                             ModBlocks.POWER_BLOCK.get() // ブロックの登録
                     ).build(null)
             );
+
+    // 電力を保存するブロックの登録
+
 
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);
