@@ -32,7 +32,6 @@ public class ModBlockEntities {
             );
 
 
-
     /**
      * BlockEntityを登録するヘルパーメソッド
      * @param name ブロック名
