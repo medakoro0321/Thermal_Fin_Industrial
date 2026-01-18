@@ -1,7 +1,5 @@
-package com.samekoro0321.thermalfin_industrial.BlockEntities.Energy;
+package com.samekoro0321.thermalfin_industrial.BlockEntities;
 
-import com.samekoro0321.thermalfin_industrial.BlockEntities.CustomEnergyStorage;
-import com.samekoro0321.thermalfin_industrial.BlockEntities.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
@@ -56,6 +54,26 @@ public abstract class BaseEnergyBlockEntity extends BlockEntity {
                 int received = neighborEnergy.receiveEnergy(extracted, false);
                 // 実際に減らす
                 energyStorage.extractEnergy(received, false);
+            }
+        }
+    }
+
+    // 隣接ブロックからエネルギーを受け取る
+    public void receiveEnergyFromNeighbors(Level level, BlockPos pos) {
+        for (Direction direction : Direction.values()) {
+            BlockPos neighborPos = pos.relative(direction);
+
+            // Capability取得
+            IEnergyStorage neighborEnergy = level.getCapability(
+                    Capabilities.EnergyStorage.BLOCK,
+                    neighborPos,
+                    direction.getOpposite()
+            );
+
+            if (neighborEnergy != null && neighborEnergy.canExtract()) {
+                int received = energyStorage.receiveEnergy(MAX_RECEIVE, true);
+                int extracted = neighborEnergy.extractEnergy(received, false);
+                energyStorage.receiveEnergy(extracted, false);
             }
         }
     }

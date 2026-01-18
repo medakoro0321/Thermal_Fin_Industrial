@@ -1,5 +1,6 @@
 package com.samekoro0321.thermalfin_industrial.BlockEntities.Energy;
 
+import com.samekoro0321.thermalfin_industrial.BlockEntities.BaseEnergyBlockEntity;
 import com.samekoro0321.thermalfin_industrial.BlockEntities.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
@@ -18,6 +19,7 @@ public class EnergyContainerBlockEntity extends BaseEnergyBlockEntity {
     public void tick(Level level, BlockPos pos, BlockState blockState) {
         if (level.isClientSide) return;
 
+        receiveEnergyFromNeighbors(level, pos);
         distributeEnergy(level, pos);
     }
 }
