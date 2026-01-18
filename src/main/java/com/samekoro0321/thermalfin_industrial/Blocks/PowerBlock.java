@@ -1,7 +1,7 @@
 package com.samekoro0321.thermalfin_industrial.Blocks;
 
 import com.samekoro0321.thermalfin_industrial.BlockEntities.ModBlockEntities;
-import com.samekoro0321.thermalfin_industrial.BlockEntities.PowerBlockEntity;
+import com.samekoro0321.thermalfin_industrial.BlockEntities.Energy.PowerBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -29,19 +29,30 @@ public class PowerBlock extends Block implements EntityBlock {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState blockState, BlockEntityType<T> type) {
+
+        // クライアント側では何もしない
         if (level.isClientSide) {
-            return null; // クライアント側では処理しない
+            return null;
         }
 
-        // サーバー側でのみtickを実行
-        return createTickerHelper(type, ModBlockEntities.POWER_BLOCK.get(),
-                (lvl, pos, st, blockEntity) -> blockEntity.tick(lvl, pos, st));
+        // サーバー側でのみtick
+        return createServerTicker(type);
     }
 
-    // ヘルパーメソッド
+    /**
+     * Tick登録ヘルパー関数
+     * @param type Minecraftから渡される型
+     * @return 一致するならtick処理を返してしない場合nullを返す
+     */
     @Nullable
-    protected static <E extends BlockEntity, A extends BlockEntity> BlockEntityTicker<A> createTickerHelper(
-            BlockEntityType<A> type, BlockEntityType<E> expectedType, BlockEntityTicker<? super E> ticker) {
-        return expectedType == type ? (BlockEntityTicker<A>) ticker : null;
+    private <T extends BlockEntity> BlockEntityTicker<T> createServerTicker(BlockEntityType<T> type) {
+        // PowerBlockEntityの型かチェック
+        if (type == ModBlockEntities.POWER_BLOCK.get()) {
+            // PowerBlockEntityのtickメソッドを返す
+            return (lvl, pos, st, blockEntity) -> {
+                ((PowerBlockEntity) blockEntity).tick(lvl, pos, st);
+            };
+        }
+        return null; // 違う型なら何もしない
     }
 }

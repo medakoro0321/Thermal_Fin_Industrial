@@ -1,5 +1,7 @@
-package com.samekoro0321.thermalfin_industrial.BlockEntities;
+package com.samekoro0321.thermalfin_industrial.BlockEntities.Energy;
 
+import com.samekoro0321.thermalfin_industrial.BlockEntities.CustomEnergyStorage;
+import com.samekoro0321.thermalfin_industrial.BlockEntities.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
