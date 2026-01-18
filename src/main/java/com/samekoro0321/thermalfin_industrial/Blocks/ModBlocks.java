@@ -1,6 +1,9 @@
 package com.samekoro0321.thermalfin_industrial.Blocks;
 
+import com.samekoro0321.thermalfin_industrial.BlockEntities.Energy.EnergyContainerBlockEntity;
 import com.samekoro0321.thermalfin_industrial.BlockItems.ModBlockItems;
+import com.samekoro0321.thermalfin_industrial.Blocks.Energy.EnergyContainerBlock;
+import com.samekoro0321.thermalfin_industrial.Blocks.Energy.PowerBlock;
 import com.samekoro0321.thermalfin_industrial.Thermalfin_industrial;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -36,7 +39,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> ENERGY_CONTAINER_BLOCK = registerBlock(
             "energy_container_block",
-            () -> new PowerBlock(BlockBehaviour.Properties.of()
+            () -> new EnergyContainerBlock(BlockBehaviour.Properties.of()
                     .strength(1.0f)
             )
     );

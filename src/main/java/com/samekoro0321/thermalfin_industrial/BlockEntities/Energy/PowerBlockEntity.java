@@ -19,6 +19,7 @@ public class PowerBlockEntity extends BaseEnergyBlockEntity {
     public void tick(Level level, BlockPos pos, BlockState blockState) {
         if (level.isClientSide) return;
 
+        generateEnergy(100);
         distributeEnergy(level, pos);
     }
 

@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.energy.IEnergyStorage;
 
+// 継承専用(abstract)
 public abstract class BaseEnergyBlockEntity extends BlockEntity {
 
     public final CustomEnergyStorage energyStorage;
@@ -28,10 +29,11 @@ public abstract class BaseEnergyBlockEntity extends BlockEntity {
         this.MAX_EXTRACT = maxExtract;
     }
 
+    public abstract void tick(Level level, BlockPos pos, BlockState blockState);
+
     // 発電
-    private void generateEnergy() {
+    public void generateEnergy(int generated) {
         // TODO: 修正
-        int generated = 10; // 1tickあたり10エネルギー生成
         energyStorage.receiveEnergy(generated, false); // エネルギーを送る
     }
 

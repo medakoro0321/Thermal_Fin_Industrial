@@ -1,5 +1,6 @@
 package com.samekoro0321.thermalfin_industrial.BlockEntities;
 
+import com.samekoro0321.thermalfin_industrial.BlockEntities.Energy.EnergyContainerBlockEntity;
 import com.samekoro0321.thermalfin_industrial.BlockEntities.Energy.PowerBlockEntity;
 import com.samekoro0321.thermalfin_industrial.Blocks.ModBlocks;
 import com.samekoro0321.thermalfin_industrial.Thermalfin_industrial;
@@ -24,10 +25,10 @@ public class ModBlockEntities {
                     ModBlocks.POWER_BLOCK
             );
 
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<PowerBlockEntity>> ENERGY_CONTAINER_BLOCK =
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<EnergyContainerBlockEntity>> ENERGY_CONTAINER_BLOCK =
             registerBlockEntity(
                     "energy_container_block",
-                    PowerBlockEntity::new,
+                    EnergyContainerBlockEntity::new,
                     ModBlocks.ENERGY_CONTAINER_BLOCK
             );
 
