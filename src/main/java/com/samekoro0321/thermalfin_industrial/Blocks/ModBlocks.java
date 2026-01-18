@@ -34,9 +34,19 @@ public class ModBlocks {
             )
     );
 
+    public static final DeferredBlock<Block> ENERGY_CONTAINER_BLOCK = registerBlock(
+            "energy_container_block",
+            () -> new PowerBlock(BlockBehaviour.Properties.of()
+                    .strength(1.0f)
+            )
+    );
 
 
-    // ブロックを登録
+    /**
+     *
+     * @param name ブロック名
+     * @param block ブロック作成関数(() -> new Block())
+     */
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block)
     {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);
