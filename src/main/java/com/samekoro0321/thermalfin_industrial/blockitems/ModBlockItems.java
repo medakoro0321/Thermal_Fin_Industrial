@@ -1,4 +1,4 @@
-package com.samekoro0321.thermalfin_industrial.BlockItems;
+package com.samekoro0321.thermalfin_industrial.blockitems;
 
 import com.samekoro0321.thermalfin_industrial.Thermalfin_industrial;
 import net.minecraft.world.item.Item;

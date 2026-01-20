@@ -1,38 +1,19 @@
 package com.samekoro0321.thermalfin_industrial;
 
 import com.mojang.logging.LogUtils;
-import com.samekoro0321.thermalfin_industrial.BlockEntities.ModBlockEntities;
-import com.samekoro0321.thermalfin_industrial.BlockItems.ModBlockItems;
-import com.samekoro0321.thermalfin_industrial.Blocks.ModBlocks;
-import net.minecraft.client.Minecraft;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
+import com.samekoro0321.thermalfin_industrial.blockentities.ModBlockEntities;
+import com.samekoro0321.thermalfin_industrial.blockitems.ModBlockItems;
+import com.samekoro0321.thermalfin_industrial.blocks.ModBlocks;
 import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.MapColor;
-import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
-import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
-import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
-import net.neoforged.neoforge.registries.DeferredBlock;
-import net.neoforged.neoforge.registries.DeferredHolder;
-import net.neoforged.neoforge.registries.DeferredItem;
-import net.neoforged.neoforge.registries.DeferredRegister;
 import org.slf4j.Logger;
 
 @Mod(Thermalfin_industrial.MOD_ID)
@@ -55,8 +36,8 @@ public class Thermalfin_industrial {
         NeoForge.EVENT_BUS.register(this);
 
 
-        ModBlockItems.Register(modEventBus); // アイテム
         ModBlocks.Register(modEventBus); // ブロック
+        ModBlockItems.Register(modEventBus); // アイテム
         ModBlockEntities.register(modEventBus); // ブロックエンティティ
         //ModMenuTypes.register(modEventBus); // メニュータイプ
 

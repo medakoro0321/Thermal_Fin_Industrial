@@ -1,8 +1,8 @@
-package com.samekoro0321.thermalfin_industrial.BlockEntities;
+package com.samekoro0321.thermalfin_industrial.blockentities;
 
-import com.samekoro0321.thermalfin_industrial.BlockEntities.Energy.EnergyContainerBlockEntity;
-import com.samekoro0321.thermalfin_industrial.BlockEntities.Energy.PowerBlockEntity;
-import com.samekoro0321.thermalfin_industrial.Blocks.ModBlocks;
+import com.samekoro0321.thermalfin_industrial.blockentities.energy.EnergyContainerBlockEntity;
+import com.samekoro0321.thermalfin_industrial.blockentities.energy.PowerBlockEntity;
+import com.samekoro0321.thermalfin_industrial.blocks.ModBlocks;
 import com.samekoro0321.thermalfin_industrial.Thermalfin_industrial;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.Block;
@@ -11,7 +11,6 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import org.jetbrains.annotations.NotNull;
 
 import static net.minecraft.world.level.block.entity.BlockEntityType.BlockEntitySupplier;
 

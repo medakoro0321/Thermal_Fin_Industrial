@@ -1,4 +1,4 @@
-package com.samekoro0321.thermalfin_industrial.Energy;
+package com.samekoro0321.thermalfin_industrial.tfienergy;
 
 import net.neoforged.neoforge.energy.IEnergyStorage;
 
@@ -41,6 +41,10 @@ public class EnergyStorage implements IEnergyStorage {
     }
 
 
+    /**
+     * エネルギー量を取得
+     * @return [int] エネルギー量を返す
+     */
     @Override
     public int getEnergyStored() {
         return energy;

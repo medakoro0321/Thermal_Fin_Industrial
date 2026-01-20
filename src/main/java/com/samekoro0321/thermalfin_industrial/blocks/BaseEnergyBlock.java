@@ -1,6 +1,6 @@
-package com.samekoro0321.thermalfin_industrial.Blocks;
+package com.samekoro0321.thermalfin_industrial.blocks;
 
-import com.samekoro0321.thermalfin_industrial.BlockEntities.BaseEnergyBlockEntity;
+import com.samekoro0321.thermalfin_industrial.blockentities.BaseEnergyBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;

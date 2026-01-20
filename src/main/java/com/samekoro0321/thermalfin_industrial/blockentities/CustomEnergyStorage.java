@@ -1,6 +1,6 @@
-package com.samekoro0321.thermalfin_industrial.BlockEntities;
+package com.samekoro0321.thermalfin_industrial.blockentities;
 
-import com.samekoro0321.thermalfin_industrial.Energy.EnergyStorage;
+import com.samekoro0321.thermalfin_industrial.tfienergy.EnergyStorage;
 
 public class CustomEnergyStorage extends EnergyStorage {
 

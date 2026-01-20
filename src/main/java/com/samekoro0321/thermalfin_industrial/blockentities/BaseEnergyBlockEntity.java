@@ -1,4 +1,4 @@
-package com.samekoro0321.thermalfin_industrial.BlockEntities;
+package com.samekoro0321.thermalfin_industrial.blockentities;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

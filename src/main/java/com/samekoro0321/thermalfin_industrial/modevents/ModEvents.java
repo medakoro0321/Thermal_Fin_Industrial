@@ -1,6 +1,6 @@
-package com.samekoro0321.thermalfin_industrial.ModEvents;
+package com.samekoro0321.thermalfin_industrial.modevents;
 
-import com.samekoro0321.thermalfin_industrial.BlockEntities.ModBlockEntities;
+import com.samekoro0321.thermalfin_industrial.blockentities.ModBlockEntities;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
