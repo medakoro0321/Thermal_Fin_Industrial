@@ -11,6 +11,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
 import javax.annotation.Nullable;
+import java.util.function.Supplier;
 
 public abstract class BaseEnergyBlock extends Block implements EntityBlock {
 
@@ -24,7 +25,7 @@ public abstract class BaseEnergyBlock extends Block implements EntityBlock {
     public abstract BlockEntity newBlockEntity(BlockPos pos, BlockState state);
 
     // どのBlockEntityTypeか
-    protected abstract BlockEntityType<?> getBlockEntityType();
+    // protected abstract BlockEntityType<?> getBlockEntityType();
 
     // tick処理を登録
     @Nullable
@@ -32,8 +33,6 @@ public abstract class BaseEnergyBlock extends Block implements EntityBlock {
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
         // クライアント側では何もしない
         if (level.isClientSide) return null;
-        // 型チェック
-        if (type != getBlockEntityType()) return null;
 
         // サーバー側でのみtick
         return (level1, pos, blockState, blockEntity) -> {

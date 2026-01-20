@@ -21,9 +21,4 @@ public class PowerBlock extends BaseEnergyBlock {
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
         return new PowerBlockEntity(pos, state);
     }
-
-    @Override
-    protected BlockEntityType<?> getBlockEntityType() {
-        return ModBlockEntities.POWER_BLOCK.get();
-    }
 }

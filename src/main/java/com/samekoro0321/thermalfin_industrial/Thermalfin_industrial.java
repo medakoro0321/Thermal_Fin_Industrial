@@ -38,8 +38,8 @@ public class Thermalfin_industrial {
 
 
         ModBlocks.Register(modEventBus); // ブロック
-        ModBlockItems.Register(modEventBus); // アイテム
         ModBlockEntities.register(modEventBus); // ブロックエンティティ
+        ModBlockItems.Register(modEventBus); // アイテム
         //ModMenuTypes.register(modEventBus); // メニュータイプ
 
         modEventBus.register(ModEvents.class); // ModEventsをModEventBusに登録
