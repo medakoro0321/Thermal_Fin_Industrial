@@ -19,6 +19,8 @@ public class EnergyContainerBlockEntity extends BaseEnergyBlockEntity {
     public void tick(Level level, BlockPos pos, BlockState blockState) {
         if (level.isClientSide) return;
 
+        System.out.println("[Container] Energy: " + energyStorage.getEnergyStored()); // debug
+
         receiveEnergyFromNeighbors(level, pos);
         distributeEnergy(level, pos);
     }

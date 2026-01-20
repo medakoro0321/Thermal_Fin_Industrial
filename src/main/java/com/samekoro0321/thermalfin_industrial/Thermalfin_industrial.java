@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import com.samekoro0321.thermalfin_industrial.blockentities.ModBlockEntities;
 import com.samekoro0321.thermalfin_industrial.blockitems.ModBlockItems;
 import com.samekoro0321.thermalfin_industrial.blocks.ModBlocks;
+import com.samekoro0321.thermalfin_industrial.modevents.ModEvents;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -41,7 +42,7 @@ public class Thermalfin_industrial {
         ModBlockEntities.register(modEventBus); // ブロックエンティティ
         //ModMenuTypes.register(modEventBus); // メニュータイプ
 
-
+        modEventBus.register(ModEvents.class); // ModEventsをModEventBusに登録
         // クリエイティブタブにアイテムを登録します
         modEventBus.addListener(this::addCreative);
 

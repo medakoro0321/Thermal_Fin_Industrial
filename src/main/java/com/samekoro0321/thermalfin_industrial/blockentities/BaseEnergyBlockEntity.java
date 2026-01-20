@@ -54,6 +54,8 @@ public abstract class BaseEnergyBlockEntity extends BlockEntity {
                 int received = neighborEnergy.receiveEnergy(extracted, false);
                 // 実際に減らす
                 energyStorage.extractEnergy(received, false);
+
+                System.out.println("Sent " + received + " energy"); // ← 追加
             }
         }
     }
