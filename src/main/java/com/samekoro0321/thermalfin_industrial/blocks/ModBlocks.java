@@ -1,6 +1,7 @@
 package com.samekoro0321.thermalfin_industrial.blocks;
 
 import com.samekoro0321.thermalfin_industrial.blockitems.ModBlockItems;
+import com.samekoro0321.thermalfin_industrial.blocks.energy.ElectricFurnaceBlock;
 import com.samekoro0321.thermalfin_industrial.blocks.energy.EnergyContainerBlock;
 import com.samekoro0321.thermalfin_industrial.blocks.energy.PowerBlock;
 import com.samekoro0321.thermalfin_industrial.Thermalfin_industrial;
@@ -39,6 +40,13 @@ public class ModBlocks {
     public static final DeferredBlock<Block> ENERGY_CONTAINER_BLOCK = registerBlock(
             "energy_container_block",
             () -> new EnergyContainerBlock(BlockBehaviour.Properties.of()
+                    .strength(1.0f)
+            )
+    );
+
+    public static final DeferredBlock<Block> ELECTRIC_FURNACE_BLOCK = registerBlock(
+            "electric_furnace_block",
+            () -> new ElectricFurnaceBlock(BlockBehaviour.Properties.of()
                     .strength(1.0f)
             )
     );
