@@ -13,13 +13,11 @@ public class PowerBlockEntity extends BaseEnergyBlockEntity {
     private static final int MAX_EXTRACT = 100; // 最大出力レート
 
     public PowerBlockEntity(BlockPos pos, BlockState blockState) {
-        super(ModBlockEntities.POWER_BLOCK.get(), pos, blockState, MAX_CAPACITY, MAX_RECEIVE, MAX_EXTRACT);
+        super(ModBlockEntities.POWER_BLOCKENTITY.get(), pos, blockState, MAX_CAPACITY, MAX_RECEIVE, MAX_EXTRACT);
     }
 
     public void tick(Level level, BlockPos pos, BlockState blockState) {
         if (level.isClientSide) return;
-
-        System.out.println(energyStorage.getEnergyStored());
 
         generateEnergy(100);
         distributeEnergy(level, pos);

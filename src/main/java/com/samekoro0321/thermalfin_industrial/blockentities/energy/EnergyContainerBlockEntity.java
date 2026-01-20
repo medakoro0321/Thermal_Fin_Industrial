@@ -13,7 +13,7 @@ public class EnergyContainerBlockEntity extends BaseEnergyBlockEntity {
     private static final int MAX_EXTRACT = 1000;
 
     public EnergyContainerBlockEntity(BlockPos pos, BlockState blockState) {
-        super(ModBlockEntities.ENERGY_CONTAINER_BLOCK.get(), pos, blockState, MAX_CAPACITY, MAX_RECEIVE, MAX_EXTRACT);
+        super(ModBlockEntities.ENERGY_CONTAINER_BLOCKENTITY.get(), pos, blockState, MAX_CAPACITY, MAX_RECEIVE, MAX_EXTRACT);
     }
 
     public void tick(Level level, BlockPos pos, BlockState blockState) {
