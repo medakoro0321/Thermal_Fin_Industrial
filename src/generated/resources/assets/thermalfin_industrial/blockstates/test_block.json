@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "thermalfin_industrial:block/test_block"
+    }
+  }
+}
