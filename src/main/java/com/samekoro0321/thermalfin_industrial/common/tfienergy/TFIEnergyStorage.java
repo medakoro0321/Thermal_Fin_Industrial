@@ -1,15 +1,15 @@
-package com.samekoro0321.thermalfin_industrial.tfienergy;
+package com.samekoro0321.thermalfin_industrial.common.tfienergy;
 
 import net.neoforged.neoforge.energy.IEnergyStorage;
 
-public class EnergyStorage implements IEnergyStorage {
+public class TFIEnergyStorage implements IEnergyStorage {
 
     public int energy; // 現在のエネルギー量
     private final int CAPACITY;
     private final int MAX_RECEIVE;
     private final int MAX_EXTRACT;
 
-    public EnergyStorage(int CAPACITY, int MAX_RECEIVE, int MAX_EXTRACT) {
+    public TFIEnergyStorage(int CAPACITY, int MAX_RECEIVE, int MAX_EXTRACT) {
         this.CAPACITY = CAPACITY;
         this.MAX_RECEIVE = MAX_RECEIVE;
         this.MAX_EXTRACT = MAX_EXTRACT;

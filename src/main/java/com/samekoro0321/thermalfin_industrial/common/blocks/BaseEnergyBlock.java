@@ -1,6 +1,6 @@
-package com.samekoro0321.thermalfin_industrial.blocks;
+package com.samekoro0321.thermalfin_industrial.common.blocks;
 
-import com.samekoro0321.thermalfin_industrial.blockentities.BaseEnergyBlockEntity;
+import com.samekoro0321.thermalfin_industrial.common.blockentities.BaseEnergyBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -11,7 +11,6 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
 import javax.annotation.Nullable;
-import java.util.function.Supplier;
 
 public abstract class BaseEnergyBlock extends Block implements EntityBlock {
 

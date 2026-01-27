@@ -1,8 +1,8 @@
-package com.samekoro0321.thermalfin_industrial.blockentities;
+package com.samekoro0321.thermalfin_industrial.common.blockentities;
 
-import com.samekoro0321.thermalfin_industrial.tfienergy.EnergyStorage;
+import com.samekoro0321.thermalfin_industrial.common.tfienergy.TFIEnergyStorage;
 
-public class CustomEnergyStorage extends EnergyStorage {
+public class CustomEnergyStorage extends TFIEnergyStorage {
 
     // setEnergyメソッドを持つカスタムクラス
     public CustomEnergyStorage(int capacity, int maxReceive, int maxExtract) {

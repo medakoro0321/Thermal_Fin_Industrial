@@ -1,10 +1,10 @@
 package com.samekoro0321.thermalfin_industrial;
 
 import com.mojang.logging.LogUtils;
-import com.samekoro0321.thermalfin_industrial.blockentities.ModBlockEntities;
-import com.samekoro0321.thermalfin_industrial.blockitems.ModBlockItems;
-import com.samekoro0321.thermalfin_industrial.blocks.ModBlocks;
-import com.samekoro0321.thermalfin_industrial.modevents.ModEvents;
+import com.samekoro0321.thermalfin_industrial.common.blockentities.TFIBlockEntities;
+import com.samekoro0321.thermalfin_industrial.common.blockitems.TFIBlockItems;
+import com.samekoro0321.thermalfin_industrial.common.blocks.TFIBlocks;
+import com.samekoro0321.thermalfin_industrial.common.modevents.TFIEvents;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -37,12 +37,12 @@ public class Thermalfin_industrial {
         NeoForge.EVENT_BUS.register(this);
 
 
-        ModBlocks.Register(modEventBus); // ブロック
-        ModBlockEntities.register(modEventBus); // ブロックエンティティ
-        ModBlockItems.Register(modEventBus); // アイテム
+        TFIBlocks.Register(modEventBus); // ブロック
+        TFIBlockEntities.register(modEventBus); // ブロックエンティティ
+        TFIBlockItems.Register(modEventBus); // アイテム
         //ModMenuTypes.register(modEventBus); // メニュータイプ
 
-        modEventBus.register(ModEvents.class); // ModEventsをModEventBusに登録
+        modEventBus.register(TFIEvents.class); // ModEventsをModEventBusに登録
         // クリエイティブタブにアイテムを登録します
         modEventBus.addListener(this::addCreative);
 

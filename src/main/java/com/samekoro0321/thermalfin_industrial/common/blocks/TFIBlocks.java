@@ -1,9 +1,9 @@
-package com.samekoro0321.thermalfin_industrial.blocks;
+package com.samekoro0321.thermalfin_industrial.common.blocks;
 
-import com.samekoro0321.thermalfin_industrial.blockitems.ModBlockItems;
-import com.samekoro0321.thermalfin_industrial.blocks.energy.ElectricFurnaceBlock;
-import com.samekoro0321.thermalfin_industrial.blocks.energy.EnergyContainerBlock;
-import com.samekoro0321.thermalfin_industrial.blocks.energy.PowerBlock;
+import com.samekoro0321.thermalfin_industrial.common.blockitems.TFIBlockItems;
+import com.samekoro0321.thermalfin_industrial.common.blocks.energy.ElectricFurnaceBlock;
+import com.samekoro0321.thermalfin_industrial.common.blocks.energy.EnergyContainerBlock;
+import com.samekoro0321.thermalfin_industrial.common.blocks.energy.PowerBlock;
 import com.samekoro0321.thermalfin_industrial.Thermalfin_industrial;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -17,7 +17,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import java.util.function.Supplier;
 
 
-public class ModBlocks {
+public class TFIBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(Thermalfin_industrial.MOD_ID);
 
     // ブロック追加
@@ -66,7 +66,7 @@ public class ModBlocks {
 
     // ブロックアイテムを登録
     private static <T extends Block> void registerBlockItem(String name, DeferredBlock<T> block) {
-        ModBlockItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
+        TFIBlockItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
     }
 
     public static void Register(IEventBus eventBus) {

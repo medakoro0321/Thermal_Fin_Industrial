@@ -1,9 +1,9 @@
-package com.samekoro0321.thermalfin_industrial.blockentities;
+package com.samekoro0321.thermalfin_industrial.common.blockentities;
 
-import com.samekoro0321.thermalfin_industrial.blockentities.energy.ElectricFurnaceBlockEntity;
-import com.samekoro0321.thermalfin_industrial.blockentities.energy.EnergyContainerBlockEntity;
-import com.samekoro0321.thermalfin_industrial.blockentities.energy.PowerBlockEntity;
-import com.samekoro0321.thermalfin_industrial.blocks.ModBlocks;
+import com.samekoro0321.thermalfin_industrial.common.blockentities.energy.ElectricFurnaceBlockEntity;
+import com.samekoro0321.thermalfin_industrial.common.blockentities.energy.EnergyContainerBlockEntity;
+import com.samekoro0321.thermalfin_industrial.common.blockentities.energy.PowerBlockEntity;
+import com.samekoro0321.thermalfin_industrial.common.blocks.TFIBlocks;
 import com.samekoro0321.thermalfin_industrial.Thermalfin_industrial;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.Block;
@@ -15,7 +15,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 import static net.minecraft.world.level.block.entity.BlockEntityType.BlockEntitySupplier;
 
-public class ModBlockEntities {
+public class TFIBlockEntities {
 
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, Thermalfin_industrial.MOD_ID);
 
@@ -23,14 +23,14 @@ public class ModBlockEntities {
             registerBlockEntity(
                     "power_block",
                     PowerBlockEntity::new,
-                    ModBlocks.POWER_BLOCK
+                    TFIBlocks.POWER_BLOCK
             );
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<EnergyContainerBlockEntity>> ENERGY_CONTAINER_BLOCKENTITY =
             registerBlockEntity(
                     "energy_container_block",
                     EnergyContainerBlockEntity::new,
-                    ModBlocks.ENERGY_CONTAINER_BLOCK
+                    TFIBlocks.ENERGY_CONTAINER_BLOCK
             );
 
 
@@ -38,7 +38,7 @@ public class ModBlockEntities {
             registerBlockEntity(
                     "electric_furnace_blockentity",
                     ElectricFurnaceBlockEntity::new,
-                    ModBlocks.ELECTRIC_FURNACE_BLOCK
+                    TFIBlocks.ELECTRIC_FURNACE_BLOCK
             );
 
 
