@@ -36,7 +36,7 @@ public class ModBlockEntities {
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ElectricFurnaceBlockEntity>> ELECTRIC_FURNACE_BLOCKENTITY =
             registerBlockEntity(
-                    "e  lectric_furnace_blockentity",
+                    "electric_furnace_blockentity",
                     ElectricFurnaceBlockEntity::new,
                     ModBlocks.ELECTRIC_FURNACE_BLOCK
             );
