@@ -15,6 +15,7 @@ public class TFIBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
+        // TODO : 将来的にforEachとか使って一斉にできるようにしたい
         registerBlockProviders(TFIBlocks.TEST_BLOCK.get(),models().withExistingParent("test_block",mcLoc("block/cobblestone")));
     }
 

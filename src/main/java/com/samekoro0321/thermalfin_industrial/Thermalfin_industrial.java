@@ -44,7 +44,7 @@ public class Thermalfin_industrial {
         //ModMenuTypes.register(modEventBus); // メニュータイプ
 
         modEventBus.register(TFIEvents.class); // ModEventsをModEventBusに登録
-        modEventBus.register(DataGenerators.class);
+        modEventBus.register(DataGenerators.class); // Datagen用
         // クリエイティブタブにアイテムを登録します
         modEventBus.addListener(this::addCreative);
 
