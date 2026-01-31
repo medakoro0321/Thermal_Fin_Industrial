@@ -12,6 +12,8 @@ import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 public class ClientModEvents {
     @SubscribeEvent
     public static void registerScreens(RegisterMenuScreensEvent registerMenuScreensEvent) {
+        System.out.println("=== Registering menu screens ==="); // ← 追加
+
         registerMenuScreensEvent.register(TFIMenuType.ELECTRIC_FURNACE_BLOCKENTITY_MENU.get(), TFIBlockScreen::new);
     }
 }

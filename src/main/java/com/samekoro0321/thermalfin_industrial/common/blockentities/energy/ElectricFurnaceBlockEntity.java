@@ -7,12 +7,15 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.BlockHitResult;
 import net.neoforged.neoforge.items.ItemStackHandler;
 
 import javax.annotation.Nullable;
@@ -23,6 +26,11 @@ public class ElectricFurnaceBlockEntity extends BaseEnergyBlockEntity implements
     private static final int MAX_RECEIVE = 1000;
     private static final int MAX_EXTRACT = 1000;
 
+    public ElectricFurnaceBlockEntity(BlockPos pos, BlockState blockState) {
+        super(TFIBlockEntities.ELECTRIC_FURNACE_BLOCKENTITY.get(), pos, blockState,
+                MAX_CAPACITY, MAX_RECEIVE, MAX_EXTRACT);
+    }
+
     // インベントリ (9スロット)
     private final ItemStackHandler itemStackHandler = new ItemStackHandler(9) {
         @Override
@@ -31,10 +39,6 @@ public class ElectricFurnaceBlockEntity extends BaseEnergyBlockEntity implements
         }
     };
 
-    public ElectricFurnaceBlockEntity(BlockPos pos, BlockState blockState) {
-        super(TFIBlockEntities.ELECTRIC_FURNACE_BLOCKENTITY.get(), pos, blockState,
-                MAX_CAPACITY, MAX_RECEIVE, MAX_EXTRACT);
-    }
 
     // MenuProvider 実装
     @Override

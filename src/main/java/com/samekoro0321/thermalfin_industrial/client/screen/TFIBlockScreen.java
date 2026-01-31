@@ -10,7 +10,7 @@ import net.minecraft.world.entity.player.Inventory;
 
 public class TFIBlockScreen extends AbstractContainerScreen<TFIBlockMenu> {
     private static final ResourceLocation TEXTURE =
-            ResourceLocation.fromNamespaceAndPath(Thermalfin_industrial.MOD_ID, "textures/gui/custom_block_gui.png");
+            ResourceLocation.fromNamespaceAndPath(Thermalfin_industrial.MOD_ID, "textures/gui/container/electric_furnace.png");
 
     public TFIBlockScreen(TFIBlockMenu menu, Inventory playerInventory, Component title) {
         super(menu, playerInventory, title);
