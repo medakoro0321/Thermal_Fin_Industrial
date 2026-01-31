@@ -45,8 +45,8 @@ public class TFIBlockEntities {
     /**
      * BlockEntityを登録するヘルパーメソッド
      * @param name ブロック名
-     * @param blockEntity BlockEntity作成関数(AnyThingBlockEntity::new)
-     * @param block 対応するブロック(ModBLocks.ANYTHING_BLOCK)
+     * @param blockEntity BlockEntity作成関数(SomeThingBlockEntity::new)
+     * @param block 対応するブロック(ModBlocks.SOMETHING_BLOCK)
      */
     private static <T extends BlockEntity> DeferredHolder<BlockEntityType<?>, BlockEntityType<T>> registerBlockEntity(String name, BlockEntitySupplier<T> blockEntity, DeferredHolder<Block, ? extends Block> block) {
         return BLOCK_ENTITIES.register(name, () ->
