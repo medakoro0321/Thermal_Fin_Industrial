@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import com.samekoro0321.thermalfin_industrial.common.blockentities.TFIBlockEntities;
 import com.samekoro0321.thermalfin_industrial.common.blockitems.TFIBlockItems;
 import com.samekoro0321.thermalfin_industrial.common.blocks.TFIBlocks;
+import com.samekoro0321.thermalfin_industrial.common.menu.TFIMenuType;
 import com.samekoro0321.thermalfin_industrial.common.modevents.TFIEvents;
 import com.samekoro0321.thermalfin_industrial.datagens.DataGenerators;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -41,7 +42,7 @@ public class Thermalfin_industrial {
         TFIBlocks.Register(modEventBus); // ブロック
         TFIBlockEntities.register(modEventBus); // ブロックエンティティ
         TFIBlockItems.Register(modEventBus); // アイテム
-        //ModMenuTypes.register(modEventBus); // メニュータイプ
+        TFIMenuType.register(modEventBus); // メニュータイプ
 
         modEventBus.register(TFIEvents.class); // ModEventsをModEventBusに登録
         modEventBus.register(DataGenerators.class); // Datagen用
